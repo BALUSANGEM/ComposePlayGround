@@ -29,7 +29,7 @@ fun Material3Text(
     skewX: Float
 ) {
     Text(
-        text = "From Material3 \n$name!",
+        text = "From\nMaterial3\n$name!",
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontSize = fontSizeSpec.sp,

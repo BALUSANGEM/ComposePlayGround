@@ -29,7 +29,7 @@ fun FoundationText(
     skewX: Float
 ) {
     BasicText(
-        text = "From Foundation \n$name!",
+        text = "From\nFoundation\n$name!",
         style = TextStyle(
             textAlign = TextAlign.Center,
             fontSize = fontSizeSpec.sp,

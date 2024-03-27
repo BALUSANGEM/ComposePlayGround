@@ -25,7 +25,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.nosort.myapplication.ui.text.FoundationText
 import com.nosort.myapplication.ui.text.Material3Text
+import com.nosort.myapplication.ui.text.TypeWriterText
 import com.nosort.myapplication.ui.theme.MyApplicationTheme
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -114,6 +116,8 @@ fun Greeting(name: String) {
     )
 
     Column {
+
+        TypeWriterText()
 
         FoundationText(
             name,
