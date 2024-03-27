@@ -15,14 +15,20 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.nosort.myapplication.ui.text.FoundationText
 import com.nosort.myapplication.ui.text.Material3Text
 import com.nosort.myapplication.ui.text.TypeWriterText
@@ -115,33 +121,79 @@ fun Greeting(name: String) {
         label = "letter_spacing"
     )
 
+    val navController = rememberNavController()
+
+    NavHost(navController = navController, startDestination = "home") {
+        composable("foundation_text") {
+            FoundationText(
+                name,
+                fontSizeSpec.value,
+                fontWeightSpec.value,
+                firstColor.value,
+                secondColor.value,
+                thirdColor.value,
+                letterSpacingSpanEm.value,
+                skewX.value
+            )
+        }
+        composable("foundation_text") {
+            FoundationText(
+                name,
+                fontSizeSpec.value,
+                fontWeightSpec.value,
+                firstColor.value,
+                secondColor.value,
+                thirdColor.value,
+                letterSpacingSpanEm.value,
+                skewX.value
+            )
+        }
+        composable("material3_text") {
+            Material3Text(
+                name,
+                fontSizeSpec.value,
+                fontWeightSpec.value,
+                firstColor.value,
+                secondColor.value,
+                thirdColor.value,
+                letterSpacingSpanEm.value,
+                skewX.value
+            )
+        }
+
+        composable("type_writer_text") {
+            TypeWriterText()
+
+        }
+        composable("home") {
+            Home(navController)
+        }
+    }
+
+
+}
+
+@Composable
+fun Home(navController: NavController) {
     Column {
-
-        TypeWriterText()
-
-        FoundationText(
-            name,
-            fontSizeSpec.value,
-            fontWeightSpec.value,
-            firstColor.value,
-            secondColor.value,
-            thirdColor.value,
-            letterSpacingSpanEm.value,
-            skewX.value
-        )
-
+        Button(onClick = {
+            navController.navigate("foundation_text")
+        }) {
+            Text(text = "Foundation")
+        }
+        Button(onClick = {
+            navController.navigate("material3_text")
+        }) {
+            Text(text = "Material3")
+        }
+        Button(onClick = {
+            navController.navigate("type_writer_text")
+        }) {
+            Text(text = "Type Writer")
+        }
         Spacer(modifier = Modifier.height(16.dp))
 
-        Material3Text(
-            name,
-            fontSizeSpec.value,
-            fontWeightSpec.value,
-            firstColor.value,
-            secondColor.value,
-            thirdColor.value,
-            letterSpacingSpanEm.value,
-            skewX.value
-        )
+
     }
 }
 
