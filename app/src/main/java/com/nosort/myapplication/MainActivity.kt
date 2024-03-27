@@ -124,18 +124,7 @@ fun Greeting(name: String) {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = "home") {
-        composable("foundation_text") {
-            FoundationText(
-                name,
-                fontSizeSpec.value,
-                fontWeightSpec.value,
-                firstColor.value,
-                secondColor.value,
-                thirdColor.value,
-                letterSpacingSpanEm.value,
-                skewX.value
-            )
-        }
+
         composable("foundation_text") {
             FoundationText(
                 name,
