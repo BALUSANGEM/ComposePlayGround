@@ -17,7 +17,6 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.sp
 
 @Composable
-@OptIn(ExperimentalTextApi::class)
 fun Material3Text(
     name: String,
     fontSizeSpec: Float,
